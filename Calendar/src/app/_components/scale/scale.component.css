@@ -1,0 +1,18 @@
+.scale {
+  display: inline;
+
+  position: relative;
+  top: -6px;
+  /* top abziehen*/
+}
+
+.scale_times {
+  margin-right: 1em;
+  text-align: right;
+  height: 30px;
+  font-size: 12px;
+}
+
+.scale_times:nth-child(odd) {
+  font-weight: 800;
+}
