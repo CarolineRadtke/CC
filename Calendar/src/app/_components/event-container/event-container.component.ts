@@ -44,4 +44,9 @@ export class EventContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  public detectCollision = () => {
+    // wenn sich zwei überschneiden, bekommen sie diesen werd mitgegeben
+    // id auch mit übergeben
+  };
 }

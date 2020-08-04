@@ -1,9 +1,10 @@
 .event-container {
- 
-  background: white;
+  display: flex;
+  background: rgb(228, 228, 228);
   width: 620px;
   /* set */
   height: 720px;
   margin: 0 auto;
   padding: 0 10px;
+  border-radius: 5px;
 }

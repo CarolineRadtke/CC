@@ -14,7 +14,6 @@ interface IEvent {
 })
 export class EventComponent implements OnInit {
   @Input() eventData: IEvent;
-  // public event: IEvent;
   public duration: number;
   public position: number;
 

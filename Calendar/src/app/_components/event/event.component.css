@@ -2,10 +2,11 @@
   position: absolute;
   top: 20px;
   display: flex;
-  height: 15px;
+  min-height: 15px;
   border: 1px solid rgb(228, 228, 228);
-  background: rgb(206, 206, 206);
-  border-radius: 2px;
+  background: white;
+  border-radius: 5px;
+  width: 615px;
 }
 .event_handle {
   width: 1em;
@@ -13,9 +14,10 @@
   background: rgb(87, 149, 151);
 }
 
-/* .event_text {
-  padding: 1em;
-} */
+.event_text {
+  padding: 0.5em;
+  font-size: 0.9em;
+}
 .event_text_title {
   font-weight: 600;
 }
