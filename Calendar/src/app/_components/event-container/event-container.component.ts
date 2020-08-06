@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { IData } from '../../_interfaces/IData';
+import { IEvent } from '../../_interfaces/IEvent';
+import { DataService } from '../../_services/data.service';
 
-interface IEvent {
-  title: String;
-  location: String;
-  start: number;
-  end: number;
-}
 @Component({
   selector: 'app-event-container',
   templateUrl: './event-container.component.html',
@@ -14,39 +11,22 @@ interface IEvent {
 export class EventContainerComponent implements OnInit {
   public dayEvents: IEvent[];
 
-  constructor() {
-    this.dayEvents = [
-      {
-        title: `Brunch`,
-        location: `Einstein Café`,
-        start: 30,
-        end: 150,
-      },
-      {
-        title: `Lunch`,
-        location: `Einstein Café`,
-        start: 540,
-        end: 600,
-      },
-      {
-        title: `Snack`,
-        location: `Einstein Café`,
-        start: 560,
-        end: 620,
-      },
-      {
-        title: `Dinner`,
-        location: `Einstein Café`,
-        start: 610,
-        end: 670,
-      },
-    ];
+  constructor(public _dataService: DataService) {
+    this.dayEvents = [];
+    this.loadData();
   }
 
   ngOnInit(): void {}
 
-  public detectCollision = () => {
-    // wenn sich zwei überschneiden, bekommen sie diesen werd mitgegeben
-    // id auch mit übergeben
+  public loadData = () => {
+    this.dayEvents = [];
+    this._dataService.getData().subscribe(
+      (data: IData) => {
+        this.dayEvents = data.events;
+      },
+      (error) => {
+        console.error('Could not load data', `color:red`);
+      }
+    );
   };
 }

@@ -1,6 +1,6 @@
 export interface IEvent {
   id: number;
-  label?: string;
+  title?: string;
   start: number;
   end: number;
 }

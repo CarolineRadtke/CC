@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LayOutDayService } from './lay-out-day.service';
+import { LayOutTestService } from './lay-out-test.service';
 
-describe('LayOutDayService', () => {
-  let service: LayOutDayService;
+describe('LayOutTestService', () => {
+  let service: LayOutTestService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LayOutDayService);
+    service = TestBed.inject(LayOutTestService);
   });
 
   it('should be created', () => {

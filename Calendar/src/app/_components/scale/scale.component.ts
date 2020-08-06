@@ -16,8 +16,7 @@ export class ScaleComponent implements OnInit {
 
   constructor() {
     this.$times = { start: 9, end: 9 };
-    this.timesStrings = ['hi'];
-    this.test = [{ name: 'hi' }, { name: 'test' }];
+    this.timesStrings = [''];
   }
 
   ngOnInit(): void {
@@ -27,7 +26,6 @@ export class ScaleComponent implements OnInit {
   public generateScaleArray(): void {
     const start = this.$times.start;
     for (let i = start; i < 13; i++) {
-      console.log('this is i', i);
       this.timesStrings.push(`${i}:00 AM`);
       this.timesStrings.push(`${i}:30`);
     }
@@ -37,6 +35,5 @@ export class ScaleComponent implements OnInit {
     }
     this.timesStrings.push(`${this.$times.end}:00 PM`);
     this.timesStrings.shift();
-    console.log('array', this.timesStrings);
   }
 }

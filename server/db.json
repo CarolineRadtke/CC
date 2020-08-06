@@ -1,0 +1,35 @@
+{
+    "data" : {
+    "events": [
+      {
+        "id": 1,
+        "title": "Brunch NEW",
+        "location": "Einstein Café",
+        "start": 30,
+        "end": 150
+      },
+      {
+        "id": 2,
+        "title": "Lunch",
+        "location": "Einstein Café",
+        "start": 540,
+        "end": 600
+      },
+
+      {
+        "id": 3,
+        "title": "Snack",
+        "location": "Einstein Café",
+        "start": 560,
+        "end": 620
+      },
+      {
+        "id": 4,
+        "title": "Dinner",
+        "location": "Einstein Café",
+        "start": 610,
+        "end": 670
+      }
+    ]}
+
+}

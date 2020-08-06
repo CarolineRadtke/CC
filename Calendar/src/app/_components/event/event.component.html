@@ -1,10 +1,8 @@
-<div
-  class="event"
-  [ngStyle]="{ 'height.px': duration, 'top.px': position + 120 }"
->
+<div class="event" [ngStyle]="{ 'height.px': duration, 'top.px': position }">
+  <!-- <div class="event"> -->
   <span class="event_handle"></span>
   <div class="event_text">
     <p class="event_text_title">{{ eventData.title }}</p>
-    <p>{{ eventData.location }}</p>
+    <!-- <p>{{ eventData.location }}</p> -->
   </div>
 </div>

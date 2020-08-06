@@ -1,11 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-interface IEvent {
-  title: String;
-  location: String;
-  start: number;
-  end: number;
-}
+import { IEvent } from '../../_interfaces/IEvent';
 
 @Component({
   selector: 'app-event',
@@ -25,8 +19,7 @@ export class EventComponent implements OnInit {
   ngOnInit(): void {
     this.duration = this.getDuration(this.eventData);
     this.position = this.eventData.start;
-    console.log('event duration', this.duration);
-    console.log('event position', this.position);
+  
   }
 
   public getDuration = (event: IEvent): number => {
