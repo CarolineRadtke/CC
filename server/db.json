@@ -1,9 +1,9 @@
 {
-    "data" : {
+  "data": {
     "events": [
       {
         "id": 1,
-        "title": "Brunch NEW",
+        "title": "Brunch",
         "location": "Einstein Café",
         "start": 30,
         "end": 150
@@ -30,6 +30,6 @@
         "start": 610,
         "end": 670
       }
-    ]}
-
+    ]
+  }
 }

@@ -10,7 +10,7 @@ import { ScaleComponent } from './_components/scale/scale.component';
 import { DataService } from './_services/data.service';
 import { layOutDayService } from './_services/lay-out-day.service';
 import { LayOutTestService } from './_services/lay-out-test.service';
-import { GridComponent } from './_components/grid/grid.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +20,6 @@ import { GridComponent } from './_components/grid/grid.component';
     HeaderComponent,
     EventContainerComponent,
     ScaleComponent,
-    GridComponent,
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [DataService],

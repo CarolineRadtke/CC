@@ -19,7 +19,7 @@ export class EventComponent implements OnInit {
   ngOnInit(): void {
     this.duration = this.getDuration(this.eventData);
     this.position = this.eventData.start;
-  
+
   }
 
   public getDuration = (event: IEvent): number => {
@@ -30,4 +30,7 @@ export class EventComponent implements OnInit {
 
     return duration;
   };
+
+
+ 
 }

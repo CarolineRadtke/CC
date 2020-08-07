@@ -16,7 +16,10 @@ export class EventContainerComponent implements OnInit {
     this.loadData();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.registerCollisions()
+
+  }
 
   public loadData = () => {
     this.dayEvents = [];
@@ -25,8 +28,17 @@ export class EventContainerComponent implements OnInit {
         this.dayEvents = data.events;
       },
       (error) => {
-        console.error('Could not load data', `color:red`);
+        console.error('Could not load data', error);
       }
     );
   };
+
+
+  public registerCollisions = () => {
+    const events = this.dayEvents;
+
+    
+
+  }
+
 }
