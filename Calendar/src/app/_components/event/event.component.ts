@@ -11,16 +11,18 @@ export class EventComponent implements OnInit {
   @Input() eventData: IEvent;
   @Input() collisons: number[];
   @Input() renderEvents: IRenderEvent;
+
   public duration: number;
   public position: number;
   public W: number;
   public event: IEvent;
   public mycollisions: number[];
+  public leftpos: number;
 
   constructor() {
     this.duration = 0;
     this.position = 0;
-
+    this.leftpos = 0;
     this.W = 300;
   }
 
@@ -28,8 +30,7 @@ export class EventComponent implements OnInit {
     this.duration = this.getDuration(this.eventData);
     this.position = this.eventData.start;
     this.W = this.getWidth();
-    console.log('git', this.renderEvents);
-    console.log('coll', this.collisons);
+    this.leftpos = this.getLeft();
   }
 
   public getDuration = (event: IEvent): number => {
@@ -40,16 +41,18 @@ export class EventComponent implements OnInit {
   };
 
   public getWidth = (): number => {
-    console.log('collisions', this.collisons);
-
-    if (this.collisons !== undefined) {
-      if (this.collisons.length !== 0) {
-        console.log('300');
-        return 300;
-      }
-      console.log('600');
-      return 600;
+    if (this.collisons.length !== 0) {
+      return 305;
     }
-    return 600;
+
+    return 610;
+  };
+
+  public getLeft = (): number => {
+    console.log('W', this.W);
+    if (this.W == 305 && this.collisons.length == 2) {
+      return 320;
+    }
+    return 10;
   };
 }
