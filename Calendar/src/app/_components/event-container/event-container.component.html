@@ -1,4 +1,8 @@
 <div class="event-container">
-
-  <app-event *ngFor="let event of dayEvents" [eventData]="event"></app-event>
+  <app-event
+    *ngFor="let event of renderEvents"
+    [eventData]="event.event"
+    [collisons]="event.collisons"
+    [renderEvents]="renderEvents"
+  ></app-event>
 </div>
