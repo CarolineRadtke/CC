@@ -1,18 +1,16 @@
 import axios from 'axios';
 
-export const thisTest = async (input: []) => {
+export const layOutDay = async (input: []) => {
   await deleteAll(input);
-  console.log('deleted all');
-  await helper(input);
+  // debugger;
+  await setNewEvents(input);
   location.reload();
 };
 
-const helper = async (req: []) => {
-  const body = JSON.stringify(req);
- 
-  let arr: [] = [];
-  arr = req;
-  return arr.map(async (item) => {
+const setNewEvents = async (req: []) => {
+  let arr: [] = req;
+
+  arr.map(async (item) => {
     await axios({
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -25,12 +23,7 @@ const helper = async (req: []) => {
 };
 
 const deleteAll = async (req: []) => {
-  console.log('delete');
-  let arr: [] = [];
-  arr = req;
   let test = await axios.get('http://localhost:3000/events');
-  console.log(test);
-  debugger;
 
   test.data.map(async (item) => {
     if (item.id) {

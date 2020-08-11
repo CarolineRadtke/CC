@@ -10,9 +10,7 @@ import { ScaleComponent } from './_components/scale/scale.component';
 import { TestDirDirective } from './_directives/test-dir.directive';
 import { CollisionService } from './_services/collision.service';
 import { DataService } from './_services/data.service';
-import { layOutDayService } from './_services/lay-out-day.service';
-import { LayOutTestService } from './_services/lay-out-test.service';
-import { thisTest } from './_services/testit';
+import { layOutDay } from './_services/layOutDay';
 
 @NgModule({
   declarations: [
@@ -30,6 +28,4 @@ import { thisTest } from './_services/testit';
 })
 export class AppModule {}
 
-window['layOutDay'] = layOutDayService;
-window['test'] = LayOutTestService;
-window['test2'] = thisTest;
+window['layOutDay'] = layOutDay;
