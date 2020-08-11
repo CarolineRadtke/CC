@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IData } from '../_interfaces/IData';
+import { IEvent } from '../_interfaces/IEvent';
 
 @Injectable({
   providedIn: 'root',
@@ -9,22 +9,20 @@ import { IData } from '../_interfaces/IData';
 export class DataService {
   private serverUrl = 'http://localhost:3000';
 
-  constructor(private _http: HttpClient) {
-    console.log('your entries: ');
-  }
+  constructor(private _http: HttpClient) {}
 
   // GET
-  public getData(): Observable<IData> {
+  public getData(): Observable<IEvent[]> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
     };
-    return this._http.get<IData>(`${this.serverUrl}/data`, httpOptions);
+    return this._http.get<IEvent[]>(`${this.serverUrl}/events`, httpOptions);
   }
 
   // PUT
-  public deleteEvents(): Observable<IData> {
+  public deleteEvents(): Observable<IEvent[]> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -33,6 +31,6 @@ export class DataService {
         events: [],
       },
     };
-    return this._http.put<IData>(`${this.serverUrl}/data`, httpOptions);
+    return this._http.put<IEvent[]>(`${this.serverUrl}/events`, httpOptions);
   }
 }

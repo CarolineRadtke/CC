@@ -7,10 +7,12 @@ import { EventContainerComponent } from './_components/event-container/event-con
 import { EventComponent } from './_components/event/event.component';
 import { HeaderComponent } from './_components/header/header.component';
 import { ScaleComponent } from './_components/scale/scale.component';
+import { TestDirDirective } from './_directives/test-dir.directive';
+import { CollisionService } from './_services/collision.service';
 import { DataService } from './_services/data.service';
 import { layOutDayService } from './_services/lay-out-day.service';
 import { LayOutTestService } from './_services/lay-out-test.service';
-
+import { thisTest } from './_services/testit';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,14 @@ import { LayOutTestService } from './_services/lay-out-test.service';
     HeaderComponent,
     EventContainerComponent,
     ScaleComponent,
+    TestDirDirective,
   ],
   imports: [BrowserModule, HttpClientModule],
-  providers: [DataService],
+  providers: [DataService, CollisionService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
 
 window['layOutDay'] = layOutDayService;
 window['test'] = LayOutTestService;
-window['test2'] = DataService;
+window['test2'] = thisTest;

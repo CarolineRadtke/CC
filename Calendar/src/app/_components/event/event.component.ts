@@ -50,7 +50,7 @@ export class EventComponent implements OnInit {
 
   public getLeft = (): number => {
     console.log('W', this.W);
-    if (this.W == 305 && this.collisons.length == 2) {
+    if (this.W == 305 && this.collisons.length >1) {
       return 320;
     }
     return 10;
