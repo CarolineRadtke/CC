@@ -29,3 +29,5 @@ For example try:
 ## Please note:
 
 Valid input consists in this case of the correct representation of an event and is ordered according to the start time the events are occuring.
+
+Also, the collision detection still does not work for all test cases e.g when 3 or more Events would overlay. With more time I would try to find another solution to get the position of each event. 
