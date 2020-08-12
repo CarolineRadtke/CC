@@ -4,14 +4,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-In Codingschallenge/Calendar
+In CC/Calendar
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Data Server
 
 This application is using the **json-server** to simmulate the Datatransfer through an API.
 To be able to send request and make changes through the console the server needs to be startet by:
-In Codingchallenge/server
+In CC/server
 Run `json-server --watch db.json`
 The db.json file holds the current dataset as a json.
 
