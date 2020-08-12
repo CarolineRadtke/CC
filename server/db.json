@@ -1,16 +1,29 @@
 {
   "events": [
     {
-      "start": 60,
-      "end": 120,
+      "start": 30,
+      "end": 150,
       "title": "Brunch",
       "id": 1
     },
     {
-      "start": 440,
-      "end": 480,
-      "title": "testIt2",
+      "start": 540,
+      "end": 600,
+      "title": "Lunch",
       "id": 2
+    },
+    {
+      "start": 560,
+      "end": 620,
+      "title": "Snack",
+      "id": 3
+    },
+    {
+      "start": 610,
+      "end": 670,
+      "title": "Dinner",
+      "location": "Restaurant",
+      "id": 4
     }
   ]
 }

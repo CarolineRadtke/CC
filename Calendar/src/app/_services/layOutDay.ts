@@ -1,15 +1,17 @@
 import axios from 'axios';
 
+/**
+ * Deletes all current events to enter the new ones given in the console
+ * @param input : Array of Events
+ */
 export const layOutDay = async (input: []) => {
-  await deleteAll(input);
-  // debugger;
+  await deleteAll();
   await setNewEvents(input);
   location.reload();
 };
 
 const setNewEvents = async (req: []) => {
   let arr: [] = req;
-
   arr.map(async (item) => {
     await axios({
       method: 'post',
@@ -17,12 +19,12 @@ const setNewEvents = async (req: []) => {
       url: 'http://localhost:3000/events',
       data: JSON.stringify(item),
     })
-      .then((resp) => console.log(resp))
-      .catch((err) => console.log(err));
+      .then((resp) => console.log('Response add Events: ', resp))
+      .catch((err) => console.error('Error add Events: ', err));
   });
 };
 
-const deleteAll = async (req: []) => {
+const deleteAll = async () => {
   let test = await axios.get('http://localhost:3000/events');
 
   test.data.map(async (item) => {
@@ -32,8 +34,8 @@ const deleteAll = async (req: []) => {
         headers: { 'Content-Type': 'application/json' },
         url: `http://localhost:3000/events/${item.id}`,
       })
-        .then((resp) => console.log('rest', resp))
-        .catch((err) => console.error('Error Delete', err));
+        .then((resp) => console.log('Response Delete: ', resp))
+        .catch((err) => console.error('Error Delete: ', err));
     }
   });
 };

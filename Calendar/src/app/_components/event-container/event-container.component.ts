@@ -32,12 +32,8 @@ export class EventContainerComponent implements OnInit {
         const dayEvents = data;
         dayEvents.map((event) => {
           this.checkCollision(event, dayEvents);
-
-          this.sortCollisions();
-          this.getShortener();
         });
-
-        this.testCollsions(dayEvents);
+        this.positionCollision(dayEvents);
       },
       (error) => {
         console.error('Could not load data', error);
@@ -51,9 +47,6 @@ export class EventContainerComponent implements OnInit {
     for (let i = 0; i < dayEvents.length; i++) {
       if (event.end > dayEvents[i].start && event.start < dayEvents[i].start) {
         eventCollisions.push(dayEvents[i].id);
-        // dayEvents[i]= null;
-        // dayEvents[i] = null;
-        // console.log("here", dayEvents[i])
       }
       if (event.start == dayEvents[i].start && event.id !== dayEvents[i].id) {
         eventCollisions.push(dayEvents[i].id);
@@ -68,35 +61,11 @@ export class EventContainerComponent implements OnInit {
     });
   };
 
-  public sortCollisions = () => {
-    const coll = [];
-    this.renderEvents.map((entry) => {
-      coll.push([entry.event.id].concat(entry.collisons).sort((a, b) => a - b));
-    });
-
-    this.collisions = coll;
-  };
-
-  public getShortener = () => {
-    let coll = this.collisions;
-
-    for (let i = 0; i < this.collisions.length; i++) {
-      const combo = this.collisions[i];
-
-      if (this.collisions.includes(combo)) {
-      }
-      // look if collision combo is somewhere else
-      // only add coll 1 time to result array
-    }
-  };
-
-  public testCollsions = (dayEvents: IEvent[]) => {
-    let events = dayEvents;
-    let shiftarr = dayEvents;
+  public positionCollision = (dayEvents: IEvent[]) => {
     let comparearray = dayEvents;
 
-    for (let shift = 0; shift < shiftarr.length; shift++) {
-      let event = shiftarr[shift];
+    for (let shift = 0; shift < dayEvents.length; shift++) {
+      let event = dayEvents[shift];
 
       for (let compare = 0; compare < comparearray.length; compare++) {
         if (
@@ -108,8 +77,12 @@ export class EventContainerComponent implements OnInit {
             position: 'before',
             collisionWith: comparearray[compare].id,
           });
-        }
-        if (
+          this.eventCollisions.push({
+            eventID: comparearray[compare].id,
+            position: 'after_before',
+            collisionWith: event.id,
+          });
+        } else if (
           event.start == comparearray[compare].start &&
           event.id !== comparearray[compare].id
         ) {
@@ -120,18 +93,19 @@ export class EventContainerComponent implements OnInit {
           });
           this.eventCollisions.push({
             eventID: comparearray[compare].id,
-            position: 'even2',
+            position: 'second_even',
             collisionWith: event.id,
           });
+        } else if (
+          comparearray[compare].end > event.start &&
+          comparearray[compare].start < event.start
+        ) {
+          this.eventCollisions.push({
+            eventID: event.id,
+            position: 'after',
+            collisionWith: comparearray[compare].id,
+          });
         }
-
-        // if (comparearray[compare].end > event.start && comparearray[compare].start < event.start) {
-        //   eventCollisions.push({
-        //     position: 'after',
-        //     collisionWith: comparearray[compare].id,
-        // });
-        // }
-        console.log(this.eventCollisions)
       }
       comparearray.shift();
     }
